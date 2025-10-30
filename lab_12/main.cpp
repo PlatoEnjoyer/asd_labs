@@ -12,10 +12,8 @@ const string FILE1 = "f1.txt";
 const string FILE2 = "f2.txt";
 const string FILE3 = "f3.txt";
 
-// Размер буфера (сколько чисел читаем за раз)
 const int BUFFER_SIZE = 10;
 
-// Структура для чтения из файла с буферизацией
 struct FileBuffer {
     ifstream file;
     vector<int> buffer;
@@ -38,7 +36,7 @@ struct FileBuffer {
         for (int i = 0; i < BUFFER_SIZE && file >> value; ++i) {
             buffer.push_back(value);
         }
-        sort(buffer.begin(), buffer.end()); // уже отсортированы после phase 1
+        sort(buffer.begin(), buffer.end());
         index = 0;
         if (buffer.empty()) {
             empty = true;
@@ -53,7 +51,7 @@ struct FileBuffer {
         if (!hasNext()) return 0;
         int val = buffer[index++];
         if (index >= buffer.size()) {
-            load(); // загружаем следующий блок
+            load(); 
         }
         return val;
     }
@@ -63,7 +61,7 @@ struct FileBuffer {
     }
 };
 
-// Фаза 1: распределение начальных цепочек по трем файлам
+
 void distributionPhase(const string& inputFile) {
     ifstream input(inputFile);
     if (!input.is_open()) {
@@ -85,13 +83,13 @@ void distributionPhase(const string& inputFile) {
             for (int x : block) {
                 *(files[fileIndex]) << x << " ";
             }
-            *(files[fileIndex]) << "\n"; // разделитель цепочек
+            *(files[fileIndex]) << "\n"; 
             block.clear();
             fileIndex = (fileIndex + 1) % 3;
         }
     }
 
-    // Последний неполный блок
+
     if (!block.empty()) {
         sort(block.begin(), block.end());
         for (int x : block) {
@@ -104,7 +102,7 @@ void distributionPhase(const string& inputFile) {
     f1.close(); f2.close(); f3.close();
 }
 
-// Фаза 2: многофазное слияние с f1, f2, f3 → output
+
 void mergePhase() {
     FileBuffer fb1(FILE1), fb2(FILE2), fb3(FILE3);
     ofstream output(OUTPUT_FILE);
@@ -117,12 +115,10 @@ void mergePhase() {
         }
     };
 
-    // Читаем по одной цепочке из каждого файла
     addIfHasNext(fb1);
     addIfHasNext(fb2);
     addIfHasNext(fb3);
 
-    // Выгружаем отсортированные данные
     while (!minHeap.empty()) {
         output << minHeap.top() << " ";
         minHeap.pop();
@@ -131,7 +127,7 @@ void mergePhase() {
     output.close();
 }
 
-// Генерация тестового файла
+
 void generateInput(int n) {
     ofstream input(INPUT_FILE);
     srand(time(0));
@@ -142,21 +138,17 @@ void generateInput(int n) {
 }
 
 int main() {
-    // Генерируем тестовые данные
-    cout << "Генерация тестовых данных..." << endl;
-    generateInput(50);  // 50 чисел
+    cout << "Генерация тестовых данных" << endl;
+    generateInput(50);
 
-    // Фаза 1: распределение
-    cout << "Распределение по файлам..." << endl;
+    cout << "Распределение по файлам" << endl;
     distributionPhase(INPUT_FILE);
 
-    // Фаза 2: слияние
-    cout << "Слияние цепочек..." << endl;
+    cout << "Слияние цепочек" << endl;
     mergePhase();
 
     cout << "Сортировка завершена. Результат в " << OUTPUT_FILE << endl;
 
-    // Вывод результата
     ifstream out(OUTPUT_FILE);
     cout << "Результат:\n";
     int x;
