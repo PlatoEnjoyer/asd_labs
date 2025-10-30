@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/user/Desktop/ASD/lab_7/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=c++17 -o CMakeFiles\\lab_6.dir\\main.cpp.obj -c C:\\Users\\user\\Desktop\\ASD\\lab_7\\main.cpp",
+  "file": "C:/Users/user/Desktop/ASD/lab_7/main.cpp",
+  "output": "CMakeFiles/lab_6.dir/main.cpp.obj"
+}
+]
