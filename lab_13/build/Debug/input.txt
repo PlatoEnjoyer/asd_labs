@@ -1,0 +1,7 @@
+INSERT name Alice
+INSERT age 25
+INSERT city Moscow
+SEARCH name
+REMOVE age
+SEARCH city
+DISPLAY

@@ -1,0 +1,14 @@
+INSERT key1 value1
+INSERT key2 value2
+INSERT key3 value3
+SEARCH key1
+INSERT key1 newValue1
+SEARCH key1
+SEARCH nonExistentKey
+REMOVE key2
+SEARCH key2
+DISPLAY
+INSERT abc def
+SEARCH abc
+REMOVE nonExistentKey
+DISPLAY

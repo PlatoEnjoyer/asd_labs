@@ -1,0 +1,34 @@
+INSERT: key1 -> value1
+INSERT: key2 -> value2
+INSERT: key3 -> value3
+SEARCH key1: найдено -> value1
+INSERT: key1 -> newValue1
+SEARCH key1: найдено -> newValue1
+SEARCH nonExistentKey: не найдено
+REMOVE: ключ key2 удалён
+SEARCH key2: не найдено
+Текущее состояние хеш-таблицы:
+[0]: (key3 -> value3)
+[1]: 
+[2]: 
+[3]: 
+[4]: 
+[5]: 
+[6]: 
+[7]: 
+[8]: (key1 -> newValue1)
+[9]: 
+INSERT: abc -> def
+SEARCH abc: найдено -> def
+REMOVE: ключ nonExistentKey не найден
+Текущее состояние хеш-таблицы:
+[0]: (key3 -> value3)
+[1]: 
+[2]: 
+[3]: 
+[4]: (abc -> def)
+[5]: 
+[6]: 
+[7]: 
+[8]: (key1 -> newValue1)
+[9]: 

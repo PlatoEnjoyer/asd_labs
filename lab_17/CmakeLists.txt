@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(lab_17)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Убрали ВСЕ флаги, связанные с кодировкой
+# Ни /utf-8, ни -finput-charset=UTF-8 — не нужны
+
+add_executable(lab_17 main.cpp)

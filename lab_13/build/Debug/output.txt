@@ -1,0 +1,12 @@
+INSERT: name -> Alice
+INSERT: age -> 25
+INSERT: city -> Moscow
+SEARCH name: найдено -> Alice
+REMOVE: ключ age удалён
+SEARCH city: найдено -> Moscow
+Текущее состояние хеш-таблицы:
+[0]: <empty>
+[1]: <deleted>
+[2]: (name -> Alice)
+[3]: (city -> Moscow)
+[4]: <empty>

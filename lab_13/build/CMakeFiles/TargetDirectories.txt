@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/ASD/lab_13/build/CMakeFiles/lab_13.dir
+C:/Users/user/Desktop/ASD/lab_13/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/user/Desktop/ASD/lab_13/build/CMakeFiles/ZERO_CHECK.dir
