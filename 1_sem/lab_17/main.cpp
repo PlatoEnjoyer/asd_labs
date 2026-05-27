@@ -38,7 +38,7 @@ private:
         Node* node = new Node(value);
 
         if (pos < s.size() && s[pos] == '(') {
-            ++pos; // '('
+            ++pos; 
             node->left = parseNode(s, pos);
 
             if (pos < s.size() && s[pos] == ',') ++pos;
@@ -163,7 +163,6 @@ int main() {
     std::cout << "Введите дерево в линейно-скобочной записи: ";
     std::getline(std::cin, input);
 
-    // Удаляем пробелы
     input.erase(std::remove(input.begin(), input.end(), ' '), input.end());
 
     tree.buildFromParentheses(input);
